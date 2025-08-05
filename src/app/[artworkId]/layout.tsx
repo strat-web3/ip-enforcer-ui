@@ -1,11 +1,12 @@
 import { Metadata } from 'next'
 
 type Props = {
-  params: { artworkId: string }
+  params: Promise<{ artworkId: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const artworkNumber = params.artworkId.replace('artwork-', '')
+  const resolvedParams = await params
+  const artworkNumber = resolvedParams.artworkId.replace('artwork-', '')
 
   return {
     title: `Artwork #${artworkNumber} | IP Enforcer`,
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `Artwork #${artworkNumber} | IP Enforcer`,
       description: `View Artwork #${artworkNumber} in full resolution`,
-      url: `https://ip-enforcer.netlify.app/${params.artworkId}`,
+      url: `https://ip-enforcer.netlify.app/${resolvedParams.artworkId}`,
       siteName: 'IP Enforcer',
       images: [
         {
