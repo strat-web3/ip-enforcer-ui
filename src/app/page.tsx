@@ -16,6 +16,7 @@ import { BrowserProvider, parseEther, formatEther } from 'ethers'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useTranslation } from '@/hooks/useTranslation'
+import { useRouter } from 'next/navigation'
 
 const testAddress = '0x502fb0dFf6A2adbF43468C9888D1A26943eAC6D1' // You can change the test address
 
@@ -30,6 +31,7 @@ export default function Home() {
   const { walletProvider } = useAppKitProvider('eip155')
   const toast = useToast()
   const t = useTranslation()
+  const router = useRouter()
 
   // Only check balance when user is actually connected (not on page load)
   useEffect(() => {
@@ -136,6 +138,10 @@ export default function Home() {
     }
   }
 
+  const handleArtworkClick = (artworkNumber: number) => {
+    router.push(`/artwork-${artworkNumber}`)
+  }
+
   const hasEnoughBalance = Number(balance) >= 0.00001
 
   return (
@@ -144,41 +150,60 @@ export default function Home() {
         {/* Image Gallery */}
         <Box>
           <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-            {Array.from({ length: 9 }, (_, index) => (
-              <Box
-                key={index}
-                position="relative"
-                overflow="hidden"
-                borderRadius="lg"
-                bg="gray.800"
-                transition="transform 0.2s ease-in-out"
-                _hover={{ transform: 'scale(1.05)' }}
-                cursor="pointer"
-              >
-                <Image
-                  src="/huangshan.png"
-                  alt={`Artwork ${index + 1}`}
-                  width="100%"
-                  height="200px"
-                  objectFit="cover"
-                  borderRadius="lg"
-                />
+            {Array.from({ length: 9 }, (_, index) => {
+              const artworkNumber = index + 1
+              return (
                 <Box
-                  position="absolute"
-                  bottom={0}
-                  left={0}
-                  right={0}
-                  bg="blackAlpha.600"
-                  color="white"
-                  p={2}
-                  borderBottomRadius="lg"
+                  key={index}
+                  position="relative"
+                  overflow="hidden"
+                  borderRadius="lg"
+                  bg="gray.800"
+                  transition="all 0.3s ease-in-out"
+                  _hover={{
+                    transform: 'scale(1.05)',
+                    boxShadow: '0 8px 25px rgba(255, 255, 255, 0.1)',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => handleArtworkClick(artworkNumber)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      handleArtworkClick(artworkNumber)
+                    }
+                  }}
+                  aria-label={`View Artwork #${artworkNumber} in full size`}
                 >
-                  <Text fontSize="sm" textAlign="center">
-                    Artwork #{index + 1}
-                  </Text>
+                  <Image
+                    src="/huangshan.png"
+                    alt={`Artwork ${artworkNumber}`}
+                    width="100%"
+                    height="200px"
+                    objectFit="cover"
+                    borderRadius="lg"
+                    userSelect="none"
+                    draggable="false"
+                  />
+                  <Box
+                    position="absolute"
+                    bottom={0}
+                    left={0}
+                    right={0}
+                    bg="blackAlpha.700"
+                    color="white"
+                    p={2}
+                    borderBottomRadius="lg"
+                    transition="background-color 0.3s ease-in-out"
+                    _groupHover={{ bg: 'blackAlpha.800' }}
+                  >
+                    <Text fontSize="sm" textAlign="center" fontWeight="medium">
+                      Artwork #{artworkNumber}
+                    </Text>
+                  </Box>
                 </Box>
-              </Box>
-            ))}
+              )
+            })}
           </Grid>
         </Box>
 
