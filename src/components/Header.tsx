@@ -139,20 +139,8 @@ export default function Header() {
               size="sm"
             />
             <MenuList minWidth="180px" px={2}>
-              <Link href="/new" color="white">
-                <MenuItem fontSize="md" px={4} py={3}>
-                  {t.navigation.newPage}
-                </MenuItem>
-              </Link>
-              <Link href="/wallet" color="white">
-                <MenuItem fontSize="md" px={4} py={3}>
-                  {t.navigation.walletGenerator}
-                </MenuItem>
-              </Link>
-              <Link href="/subscribe" color="white">
-                <MenuItem fontSize="md" px={4} py={3}>
-                  Subscribe
-                </MenuItem>
+              <Link href="/about" color="white">
+                <MenuItem fontSize="md">About</MenuItem>
               </Link>
             </MenuList>
           </Menu>
