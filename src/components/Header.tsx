@@ -74,12 +74,12 @@ export default function Header() {
           <Flex align="center" gap={3}>
             <Link href="/">
               <Heading as="h3" size="md" textAlign="center">
-                Genji
+                IP Enforcer
               </Heading>
             </Link>
             <IconButton
               as="a"
-              href="https://github.com/w3hc/genji"
+              href="https://github.com/w3hc/ip-enforcer-ui"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
