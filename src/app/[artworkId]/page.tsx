@@ -139,6 +139,11 @@ export default function ArtworkPage({ params }: Props) {
             />
           </FormControl>
 
+          <Center>
+            <Text fontSize="sm" color="gray.400" fontStyle="italic">
+              or
+            </Text>
+          </Center>
           <FormControl>
             <FormLabel htmlFor="file-upload">Upload evidence file</FormLabel>
             <Box position="relative">
@@ -155,6 +160,7 @@ export default function ArtworkPage({ params }: Props) {
                 cursor="pointer"
                 zIndex={1}
               />
+
               <Box
                 border="2px dashed"
                 borderColor={selectedFile ? 'green.400' : 'whiteAlpha.300'}
