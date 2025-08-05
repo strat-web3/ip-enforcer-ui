@@ -10,6 +10,7 @@ import {
   Box,
   Image,
   VStack,
+  SimpleGrid,
 } from '@chakra-ui/react'
 import { useAppKitAccount, useAppKitNetwork, useAppKitProvider } from '@reown/appkit/react'
 import { BrowserProvider, parseEther, formatEther } from 'ethers'
@@ -149,7 +150,7 @@ export default function Home() {
       <VStack spacing={8} align="stretch">
         {/* Image Gallery */}
         <Box>
-          <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+          <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={{ base: 4, md: 6 }}>
             {Array.from({ length: 9 }, (_, index) => {
               const artworkNumber = index + 1
               return (
@@ -179,7 +180,7 @@ export default function Home() {
                     src="/huangshan.png"
                     alt={`Artwork ${artworkNumber}`}
                     width="100%"
-                    height="200px"
+                    height={{ base: '250px', sm: '200px', md: '200px' }}
                     objectFit="cover"
                     borderRadius="lg"
                     userSelect="none"
@@ -204,7 +205,7 @@ export default function Home() {
                 </Box>
               )
             })}
-          </Grid>
+          </SimpleGrid>
         </Box>
 
         {/* Debug info - only show when connected */}
