@@ -1,6 +1,16 @@
 'use client'
 
-import { Container, Text, useToast, Button, Tooltip } from '@chakra-ui/react'
+import {
+  Container,
+  Text,
+  useToast,
+  Button,
+  Tooltip,
+  Grid,
+  Box,
+  Image,
+  VStack,
+} from '@chakra-ui/react'
 import { useAppKitAccount, useAppKitNetwork, useAppKitProvider } from '@reown/appkit/react'
 import { BrowserProvider, parseEther, formatEther } from 'ethers'
 import { useState, useEffect } from 'react'
@@ -129,67 +139,110 @@ export default function Home() {
   const hasEnoughBalance = Number(balance) >= 0.00001
 
   return (
-    <Container maxW="container.sm" py={20}>
-      <Text mb={4}>{t.home.title} 🌈</Text>
+    <Container maxW="container.lg" py={20}>
+      <VStack spacing={8} align="stretch">
+        {/* Image Gallery */}
+        <Box>
+          <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+            {Array.from({ length: 9 }, (_, index) => (
+              <Box
+                key={index}
+                position="relative"
+                overflow="hidden"
+                borderRadius="lg"
+                bg="gray.800"
+                transition="transform 0.2s ease-in-out"
+                _hover={{ transform: 'scale(1.05)' }}
+                cursor="pointer"
+              >
+                <Image
+                  src="/huangshan.png"
+                  alt={`Artwork ${index + 1}`}
+                  width="100%"
+                  height="200px"
+                  objectFit="cover"
+                  borderRadius="lg"
+                />
+                <Box
+                  position="absolute"
+                  bottom={0}
+                  left={0}
+                  right={0}
+                  bg="blackAlpha.600"
+                  color="white"
+                  p={2}
+                  borderBottomRadius="lg"
+                >
+                  <Text fontSize="sm" textAlign="center">
+                    Artwork #{index + 1}
+                  </Text>
+                </Box>
+              </Box>
+            ))}
+          </Grid>
+        </Box>
 
-      {/* Debug info - only show when connected */}
-      {isConnected && (
-        <>
-          <Text fontSize="sm" color="gray.500" mb={4}>
-            Network: {caipNetwork?.name || 'Unknown'} (Chain ID: {chainId})
+        {/* Debug info - only show when connected */}
+        {isConnected && (
+          <VStack spacing={2} align="start" bg="gray.900" p={4} borderRadius="md">
+            <Text fontSize="sm" color="gray.400">
+              Network: {caipNetwork?.name || 'Unknown'} (Chain ID: {chainId})
+            </Text>
+
+            <Text fontSize="sm" color="gray.400">
+              Connected wallet address: <strong>{address}</strong>
+            </Text>
+
+            <Text fontSize="sm" color="gray.400">
+              Balance: {parseFloat(balance).toFixed(5)} ETH
+            </Text>
+
+            <Text fontSize="sm" color="gray.400">
+              Recipient address: <strong>{testAddress}</strong>
+            </Text>
+          </VStack>
+        )}
+
+        {/* Only show send button when connected */}
+        {isConnected && (
+          <Box textAlign="center">
+            <Tooltip
+              label={!hasEnoughBalance ? t.home.insufficientBalance : ''}
+              isDisabled={hasEnoughBalance}
+              hasArrow
+              bg="black"
+              color="white"
+              borderWidth="1px"
+              borderColor="red.500"
+              borderRadius="md"
+              p={2}
+            >
+              <Button
+                onClick={handleSend}
+                isLoading={isLoading}
+                loadingText={t.common.loading}
+                bg="#45a2f8"
+                color="white"
+                _hover={{
+                  bg: '#3182ce',
+                }}
+                isDisabled={!hasEnoughBalance}
+              >
+                {t.home.sendEth}
+              </Button>
+            </Tooltip>
+          </Box>
+        )}
+
+        {/* Transaction result - only show when there's a transaction */}
+        {txHash && isConnected && (
+          <Text py={4} fontSize="14px" color="#45a2f8" textAlign="center">
+            <Link target="_blank" rel="noopener noreferrer" href={txLink ? txLink : ''}>
+              {txHash}
+            </Link>
           </Text>
-
-          <Text fontSize="sm" color="gray.500" mb={4}>
-            Connected wallet address: <strong>{address}</strong>
-          </Text>
-
-          <Text fontSize="sm" color="gray.500" mb={4}>
-            Balance: {parseFloat(balance).toFixed(5)} ETH
-          </Text>
-
-          <Text fontSize="sm" color="gray.500" mb={4}>
-            Recipient address: <strong>{testAddress}</strong>
-          </Text>
-        </>
-      )}
-
-      {/* Only show send button when connected */}
-      {isConnected && (
-        <Tooltip
-          label={!hasEnoughBalance ? t.home.insufficientBalance : ''}
-          isDisabled={hasEnoughBalance}
-          hasArrow
-          bg="black"
-          color="white"
-          borderWidth="1px"
-          borderColor="red.500"
-          borderRadius="md"
-          p={2}
-        >
-          <Button
-            onClick={handleSend}
-            isLoading={isLoading}
-            loadingText={t.common.loading}
-            bg="#45a2f8"
-            color="white"
-            _hover={{
-              bg: '#3182ce',
-            }}
-            isDisabled={!hasEnoughBalance}
-          >
-            {t.home.sendEth}
-          </Button>
-        </Tooltip>
-      )}
-
-      {/* Transaction result - only show when there's a transaction */}
-      {txHash && isConnected && (
-        <Text py={4} fontSize="14px" color="#45a2f8">
-          <Link target="_blank" rel="noopener noreferrer" href={txLink ? txLink : ''}>
-            {txHash}
-          </Link>
-        </Text>
-      )}
+        )}
+      </VStack>
     </Container>
   )
 }
