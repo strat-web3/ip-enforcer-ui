@@ -52,9 +52,9 @@ createAppKit({
   ],
   defaultNetwork: sepolia,
   metadata: {
-    name: 'Genji',
-    description: 'Next.js + Web3 Modal + Ethers.js + Chakra UI',
-    url: 'https://genji-app.netlify.app',
+    name: 'IP Enforcer',
+    description: 'Protect your artwork in the most efficient way.',
+    url: 'https://ip-enforcer.netlify.app',
     icons: ['./favicon.ico'],
   },
 

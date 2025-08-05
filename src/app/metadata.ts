@@ -1,25 +1,25 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://genji-app.netlify.app'),
+  metadataBase: new URL('https://ip-enforcer.netlify.app'),
 
-  title: 'Genji',
-  description: 'Next.js + Web3 Modal + Ethers.js + Chakra UI',
+  title: 'IP Enforcer',
+  description: 'Protect your artwork in the most efficient way.',
 
-  keywords: ['Web3', 'Next.js', 'Ethereum', 'DApp', 'Blockchain', 'Wallet'],
+  keywords: ['Web3', 'Next.js', 'Ethereum', 'DApp', 'Blockchain', 'IP', 'AI'],
   authors: [{ name: 'Julien', url: 'https://github.com/julienbrg' }],
 
   openGraph: {
-    title: 'Genji',
-    description: 'Next.js + Web3 Modal + Ethers.js + Chakra UI',
-    url: 'https://genji-app.netlify.app',
-    siteName: 'Genji',
+    title: 'IP Enforcer',
+    description: 'Protect your artwork in the most efficient way.',
+    url: 'https://ip-enforcer.netlify.app',
+    siteName: 'IP Enforcer',
     images: [
       {
         url: '/huangshan.png',
         width: 1200,
         height: 630,
-        alt: 'Genji Web3 Application',
+        alt: 'IP Enforcer',
       },
     ],
     locale: 'en_US',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Genji',
-    description: 'Next.js + Web3 Modal + Ethers.js + Chakra UI',
+    title: 'IP Enforcer',
+    description: 'Protect your artwork in the most efficient way.',
     images: ['/huangshan.png'],
     creator: '@julienbrg',
   },
