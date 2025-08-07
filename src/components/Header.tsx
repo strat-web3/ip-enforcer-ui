@@ -79,7 +79,7 @@ export default function Header() {
             </Link>
             <IconButton
               as="a"
-              href="https://github.com/w3hc/ip-enforcer-ui"
+              href="https://github.com/strat-web3/ip-enforcer-ui"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
