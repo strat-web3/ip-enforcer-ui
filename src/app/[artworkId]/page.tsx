@@ -511,19 +511,20 @@ export default function ArtworkPage({ params }: Props) {
 
                   <Text fontWeight="semibold">Preamble:</Text>
                   <Text fontSize="sm">
-                    These Terms and Conditions of Sale for NFT and Rights Licensing ("TCNFT") define
-                    the contractual relationship between the "PARTIES":
+                    These Terms and Conditions of Sale for NFT and Rights Licensing
+                    (&quot;TCNFT&quot;) define the contractual relationship between the
+                    &quot;PARTIES&quot;:
                   </Text>
                   <Text fontSize="sm">
-                    On the one hand the "SELLER", Artist's name: Leonardo Da Vinci, Email address:
-                    leonardo@strat.cc Holder of the address
+                    On the one hand the &quot;SELLER&quot;, Artist&apos;s name: Leonardo Da Vinci,
+                    Email address: leonardo@strat.cc Holder of the address
                     0xbeb7cc844f9d21e53ab4632ba6df6459b9f2a078 on the Polygon public blockchain
                     shared electronic recording device.
                   </Text>
                   <Text fontSize="sm">
-                    And on the other hand, the "ACQUIRER", Customer with full legal capacity and
-                    having called the smart contract of the non-fungible token ("NFT") issuance to
-                    acquire the NFT on the Polygon blockchain.
+                    And on the other hand, the &quot;ACQUIRER&quot;, Customer with full legal
+                    capacity and having called the smart contract of the non-fungible token
+                    (&quot;NFT&quot;) issuance to acquire the NFT on the Polygon blockchain.
                   </Text>
 
                   <Text fontWeight="semibold">Article 1. Purpose of the contract</Text>
@@ -572,7 +573,7 @@ export default function ArtworkPage({ params }: Props) {
                     <strong>2.3. Duration</strong>
                     <br />
                     The rights of use are granted for the duration of 70 years from the issuance of
-                    the non-fungible token ("NFT") of address
+                    the non-fungible token (&quot;NFT&quot;) of address
                     0xbeb7cc844f9d21e53ab4632ba6df6459b9f2a078 on the Polygon public blockchain.
                   </Text>
                   <Text fontSize="sm">
@@ -586,7 +587,7 @@ export default function ArtworkPage({ params }: Props) {
                     medium, existing or future, in a strictly private setting, for personal and
                     non-commercial use. - The right to reproduce and represent the WORK in a public
                     setting for the strict purpose of reselling the NFT, on any existing or future
-                    physical or digital media, in particular social networks, the ACQUIRER's
+                    physical or digital media, in particular social networks, the ACQUIRER&apos;s
                     personal or professional websites, online galleries or metaverse.
                   </Text>
 
@@ -595,9 +596,9 @@ export default function ArtworkPage({ params }: Props) {
                     In consideration of the NFT relating to the WORK and the associated rights of
                     use, the ACQUIRER undertakes to pay the SELLER a remuneration of a lump sum
                     which will be determined at the time of the meeting of wills formalized by the
-                    validation of the ACQUIRER's price offer by the SELLER and the execution of the
-                    smart contract transferring the NFT between two public addresses on the Polygon
-                    public blockchain.
+                    validation of the ACQUIRER&apos;s price offer by the SELLER and the execution of
+                    the smart contract transferring the NFT between two public addresses on the
+                    Polygon public blockchain.
                   </Text>
 
                   <Text fontWeight="semibold">Article 4. Guarantees</Text>
