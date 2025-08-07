@@ -10,10 +10,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `Artwork #${artworkNumber} | IP Enforcer`,
-    description: `View Artwork #${artworkNumber} in full resolution`,
+    description: `Report an IP infringement on Artwork #${artworkNumber}`,
     openGraph: {
       title: `Artwork #${artworkNumber} | IP Enforcer`,
-      description: `View Artwork #${artworkNumber} in full resolution`,
+      description: `Report an IP infringement on Artwork #${artworkNumber}`,
       url: `https://ip-enforcer.netlify.app/${resolvedParams.artworkId}`,
       siteName: 'IP Enforcer',
       images: [
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: `Artwork #${artworkNumber} | IP Enforcer`,
-      description: `View Artwork #${artworkNumber} in full resolution`,
+      description: `Report an IP infringement on Artwork #${artworkNumber}`,
       images: ['/huangshan.png'],
     },
   }
