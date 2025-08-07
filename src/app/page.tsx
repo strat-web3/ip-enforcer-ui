@@ -208,6 +208,12 @@ export default function Home() {
           </SimpleGrid>
         </Box>
 
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
         {/* Debug info - only show when connected */}
         {isConnected && (
           <VStack spacing={2} align="start" bg="gray.900" p={4} borderRadius="md">

@@ -11,12 +11,10 @@ export default function AboutPage() {
       <Container maxW="container.md" py={20}>
         <VStack spacing={8} align="stretch">
           <section aria-label="What is Genji">
-            <Box bg="whiteAlpha.100" p={6} borderRadius="lg">
-              <Heading as="h2" size="lg" mb={4}>
-                What is IP Enforcer?
-              </Heading>
-              <Text mb={4}>Content content content content content content</Text>
-            </Box>
+            <Heading as="h2" size="lg" mb={4}>
+              What is IP Enforcer?
+            </Heading>
+            <Text mb={4}>IP actually matters.</Text>
           </section>
         </VStack>
       </Container>
